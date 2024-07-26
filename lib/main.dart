@@ -1,4 +1,6 @@
+import 'package:analytics_app/post_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
 
@@ -52,6 +54,7 @@ class _All_ActivityState extends State<All_Activity> {
         leading: const Icon(Icons.arrow_back_outlined),
         title: const Text(
           "All activity",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
       body: SingleChildScrollView(
@@ -66,32 +69,34 @@ class _All_ActivityState extends State<All_Activity> {
                   borderRadius: BorderRadius.circular(5),
                   border: Border.all(color: Colors.black26),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
                         children: [
                           ClipRRect(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(1000)),
                             child: Image.asset(
                               "assets/new-nt-guna-beta-keystore.jpeg",
-                              height: 50,
-                              width: 50,
+                              height: 40,
+                              width: 40,
                             ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left: 5),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       "Mohini Shewale . ",
                                       style: TextStyle(
-                                          fontSize: 12, color: Colors.black),
+                                          fontSize: 10, color: Colors.black),
                                     ),
                                     Text(
                                       "You",
@@ -99,7 +104,7 @@ class _All_ActivityState extends State<All_Activity> {
                                           fontSize: 9, color: Colors.black45),
                                     ),
                                     SizedBox(
-                                      width: 149,
+                                      width: 185,
                                     ),
                                     Icon(
                                       Icons.more_horiz,
@@ -126,48 +131,53 @@ class _All_ActivityState extends State<All_Activity> {
                           ),
                         ],
                       ),
-                      Text(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
                         "Exciting News for Marketers! Elevate Your Game with Akool's AI-Powered Tools!",
                         style: GoogleFonts.roboto(
                             fontSize: 10, color: Colors.black),
                       ),
-                      const Align(
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "...See more",
                           style: TextStyle(fontSize: 10, color: Colors.black54),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      FutureBuilder(
-                        future: _initializeVideoPlayerFuture,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return AspectRatio(
-                              aspectRatio: _controller.value.aspectRatio,
-                              child: VideoPlayer(_controller),
-                            );
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    FutureBuilder(
+                      future: _initializeVideoPlayerFuture,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return AspectRatio(
+                            aspectRatio: _controller.value.aspectRatio,
+                            child: VideoPlayer(_controller),
+                          );
+                        } else {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
+                      child: Row(
                         children: [
                           Image.asset(
                             "assets/Linkedin-Like-Icon-Thumbup500.png",
                             height: 10,
                             width: 10,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           const Text(
@@ -175,7 +185,7 @@ class _All_ActivityState extends State<All_Activity> {
                             style:
                                 TextStyle(fontSize: 9, color: Colors.black45),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           const Text(
                             "89 comments . 22 reposts",
                             style:
@@ -183,94 +193,126 @@ class _All_ActivityState extends State<All_Activity> {
                           ),
                         ],
                       ),
-                      const Divider(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8, right: 8),
+                      child: Divider(),
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              size: 11,
+                              color: Colors.red,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "Love",
+                              style: TextStyle(fontSize: 11, color: Colors.red),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.comment_outlined,
+                              size: 11,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "Comment",
+                              style: TextStyle(
+                                  fontSize: 11, color: Colors.black87),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.repeat,
+                              size: 11,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "Repost",
+                              style: TextStyle(
+                                  fontSize: 11, color: Colors.black87),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.send,
+                              size: 11,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "Send",
+                              style: TextStyle(
+                                  fontSize: 11, color: Colors.black87),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Row(
                         children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.favorite,
-                                size: 15,
-                                color: Colors.red,
-                              ),
-                              SizedBox(
-                                width: 3,
-                              ),
-                              Text(
-                                "Love",
-                                style:
-                                    TextStyle(fontSize: 14, color: Colors.red),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.comment_outlined,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 3,
-                              ),
-                              Text(
-                                "Comment",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black87),
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.repeat,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 3,
-                              ),
-                              Text(
-                                "Repost",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black87),
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.send,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 3,
-                              ),
-                              Text(
-                                "Send",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black87),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Row(
-                        children: [
-                          Align(
+                          const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "388,896 impressions",
-                              style:
-                                  TextStyle(fontSize: 9, color: Colors.black45),
+                              "388,896 ",
+                              style: TextStyle(
+                                  fontSize: 10, color: Colors.black54),
                             ),
                           ),
+                          Text(
+                            "impressions",
+                            style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontSize: 10,
+                                color: Colors.black54),
+                          ),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Post_analytics()),
+                              );
+                            },
+                            child: const Text(
+                              "View analytics",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.blue,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.blue),
+                            ),
+                          )
                         ],
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
@@ -283,32 +325,34 @@ class _All_ActivityState extends State<All_Activity> {
                   borderRadius: BorderRadius.circular(5),
                   border: Border.all(color: Colors.black26),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
                         children: [
                           ClipRRect(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(1000)),
                             child: Image.asset(
                               "assets/new-nt-guna-beta-keystore.jpeg",
-                              height: 50,
-                              width: 50,
+                              height: 40,
+                              width: 40,
                             ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left: 5),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       "Mohini Shewale . ",
                                       style: TextStyle(
-                                          fontSize: 12, color: Colors.black),
+                                          fontSize: 10, color: Colors.black),
                                     ),
                                     Text(
                                       "You",
@@ -316,7 +360,7 @@ class _All_ActivityState extends State<All_Activity> {
                                           fontSize: 9, color: Colors.black45),
                                     ),
                                     SizedBox(
-                                      width: 149,
+                                      width: 185,
                                     ),
                                     Icon(
                                       Icons.more_horiz,
@@ -343,48 +387,53 @@ class _All_ActivityState extends State<All_Activity> {
                           ),
                         ],
                       ),
-                      Text(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
                         "Exciting News for Marketers! Elevate Your Game with Akool's AI-Powered Tools!",
                         style: GoogleFonts.roboto(
                             fontSize: 10, color: Colors.black),
                       ),
-                      const Align(
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "...See more",
                           style: TextStyle(fontSize: 10, color: Colors.black54),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      FutureBuilder(
-                        future: _initializeVideoPlayerFuture,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return AspectRatio(
-                              aspectRatio: _controller.value.aspectRatio,
-                              child: VideoPlayer(_controller),
-                            );
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    FutureBuilder(
+                      future: _initializeVideoPlayerFuture,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return AspectRatio(
+                            aspectRatio: _controller.value.aspectRatio,
+                            child: VideoPlayer(_controller),
+                          );
+                        } else {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
+                      child: Row(
                         children: [
                           Image.asset(
                             "assets/Linkedin-Like-Icon-Thumbup500.png",
                             height: 10,
                             width: 10,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           const Text(
@@ -392,7 +441,7 @@ class _All_ActivityState extends State<All_Activity> {
                             style:
                                 TextStyle(fontSize: 9, color: Colors.black45),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           const Text(
                             "89 comments . 22 reposts",
                             style:
@@ -400,317 +449,126 @@ class _All_ActivityState extends State<All_Activity> {
                           ),
                         ],
                       ),
-                      const Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.favorite,
-                                  size: 15,
-                                  color: Colors.red,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Love",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.red),
-                                ),
-                              ],
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8, right: 8),
+                      child: Divider(),
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              size: 12,
+                              color: Colors.red,
                             ),
-                          ),
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.comment_outlined,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Comment",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black87),
-                                )
-                              ],
+                            SizedBox(
+                              width: 3,
                             ),
-                          ),
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.repeat,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Repost",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black87),
-                                )
-                              ],
+                            Text(
+                              "Love",
+                              style: TextStyle(fontSize: 11, color: Colors.red),
                             ),
-                          ),
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.send,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Send",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black87),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "388,896 impressions",
-                          style: TextStyle(fontSize: 9, color: Colors.black45),
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 405,
-                width: 1000,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(color: Colors.black26),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(1000)),
-                            child: Image.asset(
-                              "assets/new-nt-guna-beta-keystore.jpeg",
-                              height: 50,
-                              width: 50,
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.comment_outlined,
+                              size: 12,
                             ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Mohini Shewale . ",
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.black),
-                                    ),
-                                    Text(
-                                      "You",
-                                      style: TextStyle(
-                                          fontSize: 9, color: Colors.black45),
-                                    ),
-                                    SizedBox(
-                                      width: 149,
-                                    ),
-                                    Icon(
-                                      Icons.more_horiz,
-                                      color: Colors.black38,
-                                    )
-                                  ],
-                                ),
-                                Text(
-                                  "140k+ Linkedin Family 🚀|| Linkedin Branding Strategist || Al C..",
-                                  style: TextStyle(
-                                      fontSize: 9, color: Colors.black45),
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "1d.",
-                                      style: TextStyle(
-                                          fontSize: 9, color: Colors.black45),
-                                    ),
-                                  ],
-                                )
-                              ],
+                            SizedBox(
+                              width: 3,
                             ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        "Exciting News for Marketers! Elevate Your Game with Akool's AI-Powered Tools!",
-                        style: GoogleFonts.roboto(
-                            fontSize: 10, color: Colors.black),
-                      ),
-                      const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "...See more",
-                          style: TextStyle(fontSize: 10, color: Colors.black54),
+                            Text(
+                              "Comment",
+                              style: TextStyle(
+                                  fontSize: 11, color: Colors.black87),
+                            )
+                          ],
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      FutureBuilder(
-                        future: _initializeVideoPlayerFuture,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return AspectRatio(
-                              aspectRatio: _controller.value.aspectRatio,
-                              child: VideoPlayer(_controller),
-                            );
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/Linkedin-Like-Icon-Thumbup500.png",
-                            height: 10,
-                            width: 10,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "You and 416 others",
-                            style:
-                                TextStyle(fontSize: 9, color: Colors.black45),
-                          ),
-                          Spacer(),
-                          const Text(
-                            "89 comments . 22 reposts",
-                            style:
-                                TextStyle(fontSize: 9, color: Colors.black45),
-                          ),
-                        ],
-                      ),
-                      const Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.favorite,
-                                  size: 15,
-                                  color: Colors.red,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Love",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.red),
-                                ),
-                              ],
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.repeat,
+                              size: 11,
                             ),
-                          ),
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.comment_outlined,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Comment",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black87),
-                                )
-                              ],
+                            SizedBox(
+                              width: 3,
                             ),
-                          ),
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.repeat,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Repost",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black87),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.send,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  "Send",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black87),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "388,896 impressions",
-                          style: TextStyle(fontSize: 9, color: Colors.black45),
+                            Text(
+                              "Repost",
+                              style: TextStyle(
+                                  fontSize: 11, color: Colors.black87),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.send,
+                              size: 11,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "Send",
+                              style: TextStyle(
+                                  fontSize: 11, color: Colors.black87),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Row(
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "388,896 ",
+                              style: TextStyle(
+                                  fontSize: 10, color: Colors.black54),
+                            ),
+                          ),
+                          Text(
+                            "impressions",
+                            style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontSize: 10,
+                                color: Colors.black54),
+                          ),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Post_analytics()),
+                              );
+                            },
+                            child: const Text(
+                              "View analytics",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.blue,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.blue),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),

@@ -188,6 +188,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "percent_indicator",
+      "rootUri": "file:///Users/tejasjawale/.pub-cache/hosted/pub.dev/percent_indicator-4.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///Users/tejasjawale/.pub-cache/hosted/pub.dev/platform-3.1.5",
       "packageUri": "lib/",
@@ -308,7 +314,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-07-26T10:28:21.071518Z",
+  "generated": "2024-07-26T12:08:50.754207Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///Users/tejasjawale/Downloads/flutter",
