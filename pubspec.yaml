@@ -1,14 +1,16 @@
 name: analytics_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
+  sdk: ">=3.4.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  google_fonts: ^6.2.1
+  video_player: ^2.9.1
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/new-nt-guna-beta-keystore.jpeg
+    - assets/5547212-uhd_4096_2160_25fps.mp4
+    - assets/Linkedin-Like-Icon-Thumbup500.png
