@@ -1,4 +1,5 @@
 import 'package:analytics_app/main.dart';
+import 'package:analytics_app/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -40,7 +41,10 @@ class _Post_analyticsState extends State<Post_analytics> {
             },
             child: const Icon(Icons.arrow_back_outlined)),
         actions: const [
-          Icon(Icons.file_download_outlined),
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: Icon(Icons.file_download_outlined),
+          ),
         ],
       ),
       body: Column(
@@ -56,29 +60,32 @@ class _Post_analyticsState extends State<Post_analytics> {
                     child: Text(
                       "Post analytics",
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                     ),
                   ),
                   const Divider(),
-                  const Row(
-                    children: [
-                      Text(
-                        "Mohini Shewale",
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w600),
-                      ),
-                      Text(
-                        " posted this . 1d",
-                        style: TextStyle(
-                            fontSize: 10, fontWeight: FontWeight.w300),
-                      ),
-                    ],
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Mohini Shewale",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          " posted this . 1d",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.w300),
+                        ),
+                      ],
+                    ),
                   ),
                   Row(
                     children: [
                       Container(
-                        height: 50,
-                        width: 50,
+                        height: 60,
+                        width: 60,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
@@ -139,7 +146,7 @@ class _Post_analyticsState extends State<Post_analytics> {
                             Text(
                               "388,896",
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w600),
+                                  fontSize: 14, fontWeight: FontWeight.w600),
                             ),
                             Text(
                               "impressions",
@@ -165,7 +172,7 @@ class _Post_analyticsState extends State<Post_analytics> {
                             Text(
                               "Engagements",
                               style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
+                                  fontSize: 12, fontWeight: FontWeight.w600),
                             ),
                             Padding(
                               padding: EdgeInsets.all(8.0),
@@ -222,7 +229,7 @@ class _Post_analyticsState extends State<Post_analytics> {
                               child: Row(
                                 children: [
                                   Text(
-                                    "Comments",
+                                    "Reports",
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400),
@@ -260,7 +267,7 @@ class _Post_analyticsState extends State<Post_analytics> {
                             Text(
                               "Video performance",
                               style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
+                                  fontSize: 12, fontWeight: FontWeight.w600),
                             ),
                             SizedBox(
                               height: 5,
@@ -274,13 +281,13 @@ class _Post_analyticsState extends State<Post_analytics> {
                                     Text(
                                       "310,675",
                                       style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     Text(
                                       "Views",
                                       style: TextStyle(
-                                          fontSize: 12,
+                                          fontSize: 10,
                                           fontWeight: FontWeight.w400),
                                     ),
                                   ],
@@ -292,13 +299,13 @@ class _Post_analyticsState extends State<Post_analytics> {
                                     Text(
                                       "301,987",
                                       style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     Text(
                                       "Viewers",
                                       style: TextStyle(
-                                          fontSize: 12,
+                                          fontSize: 10,
                                           fontWeight: FontWeight.w400),
                                     ),
                                   ],
@@ -310,13 +317,13 @@ class _Post_analyticsState extends State<Post_analytics> {
                                     Text(
                                       "72,987",
                                       style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     Text(
                                       "Minutes viewed",
                                       style: TextStyle(
-                                          fontSize: 12,
+                                          fontSize: 10,
                                           fontWeight: FontWeight.w400),
                                     ),
                                   ],
@@ -342,7 +349,7 @@ class _Post_analyticsState extends State<Post_analytics> {
                             const Text(
                               "Top video viewer demographics",
                               style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
+                                  fontSize: 12, fontWeight: FontWeight.w600),
                             ),
                             const SizedBox(
                               height: 5,
@@ -358,7 +365,12 @@ class _Post_analyticsState extends State<Post_analytics> {
                                 padding: EdgeInsets.all(8.0),
                                 child: Row(
                                   children: [
-                                    Text("Job titles"),
+                                    Text(
+                                      "Job titles",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                     Spacer(),
                                     Icon(Icons.arrow_drop_down)
                                   ],
