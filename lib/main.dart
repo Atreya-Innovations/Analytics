@@ -40,7 +40,7 @@ class _splashScreenState extends State<splashScreen> {
                 MaterialPageRoute(builder: (context) => const All_Activity()),
               );
             },
-            child: Text("Start")),
+            child: const Text("Start")),
       ),
     );
   }

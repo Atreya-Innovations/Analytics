@@ -12,20 +12,21 @@ class Post_analytics extends StatefulWidget {
 }
 
 class _Post_analyticsState extends State<Post_analytics> {
-  // bool _isLoading = false;
+  bool _isLoading = true;
 
-  // // Simulate a network request or a long-running task
-  // Future<void> _simulateNetworkRequest() async {
-  //   setState(() {
-  //     _isLoading = true;
-  //   });
+  // Simulate a network request or a long-running task
+  Future<void> _simulateNetworkRequest() async {
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      _isLoading = false;
+    });
+  }
 
-  //   await Future.delayed(const Duration(seconds: 3));
-
-  //   setState(() {
-  //     _isLoading = false;
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _simulateNetworkRequest();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,7 @@ class _Post_analyticsState extends State<Post_analytics> {
         ],
       ),
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             color: Colors.white,
@@ -126,393 +128,413 @@ class _Post_analyticsState extends State<Post_analytics> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Container(
-                      height: 60,
-                      width: double.infinity,
-                      color: Colors.white,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "388,896",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              "impressions",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Container(
-                      height: 170,
-                      width: double.infinity,
-                      color: Colors.white,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Engagements",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Reactions",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    "416",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_outlined,
-                                    size: 15,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Divider(),
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Comments",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    "89",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_outlined,
-                                    size: 15,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Divider(),
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Reports",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    "21",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_outlined,
-                                    size: 15,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Container(
-                      height: 90,
-                      width: double.infinity,
-                      color: Colors.white,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Video performance",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "310,675",
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    Text(
-                                      "Views",
-                                      style: TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ],
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "301,987",
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    Text(
-                                      "Viewers",
-                                      style: TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ],
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "72,987",
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    Text(
-                                      "Minutes viewed",
-                                      style: TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Container(
-                      height: 200,
-                      width: double.infinity,
-                      color: Colors.white,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Top video viewer demographics",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Container(
-                              height: 40,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
+          _isLoading
+              ? Center(child: CircularProgressIndicator())
+              : SizedBox(
+                  height: 589,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Container(
+                              height: 61,
+                              width: double.infinity,
+                              color: Colors.white,
                               child: const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Row(
+                                padding: EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Job titles",
+                                      "388,896",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    Text(
+                                      "impressions",
                                       style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400),
                                     ),
-                                    Spacer(),
-                                    Icon(Icons.arrow_drop_down)
                                   ],
                                 ),
                               ),
                             ),
-                            const Row(
-                              children: [
-                                Text(
-                                  "Software Developer",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Container(
+                              height: 175,
+                              width: double.infinity,
+                              color: Colors.white,
+                              child: const Padding(
+                                padding: EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Engagements",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Reactions",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          Spacer(),
+                                          Text(
+                                            "416",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_outlined,
+                                            size: 15,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Comments",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          Spacer(),
+                                          Text(
+                                            "89",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_outlined,
+                                            size: 15,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Reports",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          Spacer(),
+                                          Text(
+                                            "21",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_outlined,
+                                            size: 15,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  " 9.5%",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                )
-                              ],
+                              ),
                             ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            LinearPercentIndicator(
-                              percent: 0.95,
-                              progressColor: Colors.black,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Row(
-                              children: [
-                                Text(
-                                  "Software Tester",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Container(
+                              height: 90,
+                              width: double.infinity,
+                              color: Colors.white,
+                              child: const Padding(
+                                padding: EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Video performance",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "310,675",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            Text(
+                                              "Views",
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "301,987",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            Text(
+                                              "Viewers",
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "72,987",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            Text(
+                                              "Minutes viewed",
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                                Text(
-                                  " 5.8%",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Container(
+                              height: 255,
+                              width: double.infinity,
+                              color: Colors.white,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "Top video viewer demographics",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        height: 35,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.black),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(5.0),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "Job titles",
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                              Spacer(),
+                                              Icon(Icons.arrow_drop_down)
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          "Software Developer",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          " 9.5%",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    LinearPercentIndicator(
+                                      percent: 0.95,
+                                      progressColor: Colors.black,
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          "Software Tester",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          " 5.8%",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    LinearPercentIndicator(
+                                      percent: 0.58,
+                                      progressColor: Colors.black,
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          "Salesperson",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          " 4.6%",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    LinearPercentIndicator(
+                                      percent: 0.46,
+                                      progressColor: Colors.black,
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          "Student",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          " 2.7%",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    LinearPercentIndicator(
+                                      percent: 0.27,
+                                      progressColor: Colors.black,
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          "Executive Director",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          " 2%",
+                                          style: TextStyle(
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    LinearPercentIndicator(
+                                      percent: 0.2,
+                                      progressColor: Colors.black,
+                                    )
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            LinearPercentIndicator(
-                              percent: 0.58,
-                              progressColor: Colors.black,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Row(
-                              children: [
-                                Text(
-                                  "Salesperson",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                Text(
-                                  " 4.6%",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            LinearPercentIndicator(
-                              percent: 0.46,
-                              progressColor: Colors.black,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Row(
-                              children: [
-                                Text(
-                                  "Student",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                Text(
-                                  " 2.7%",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            LinearPercentIndicator(
-                              percent: 0.27,
-                              progressColor: Colors.black,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Row(
-                              children: [
-                                Text(
-                                  "Executive Director",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                Text(
-                                  " 2%",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400),
-                                )
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            LinearPercentIndicator(
-                              percent: 0.2,
-                              progressColor: Colors.black,
-                            )
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
+                ),
         ],
       ),
     );
